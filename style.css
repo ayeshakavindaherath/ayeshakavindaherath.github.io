@@ -69,7 +69,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
-  box-shadow: 0 8px 16px rgba(66, 153, 225, 0.15);
+  box-shadow: 0 8px 16px rgba(66, 153, 225, 0.8);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -790,4 +790,5 @@ body {
     font-size: 1.1rem;
   }
 }
+
 
