@@ -1,0 +1,4 @@
+# robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://ayeshakavindaherath.github.io/sitemap.xml
