@@ -13,14 +13,14 @@ body {
   color: #1e293b;
 }
 
-/* Animated light gradient background */
+/* Animated cream background */
 .bg-animated {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #f0f7ff, #faf5ff, #f0fdf4, #fff4ed);
+  background: linear-gradient(-45deg, #fef9e7, #fdf6e3, #fff7e6, #fef5e7);
   background-size: 400% 400%;
   animation: bgMove 18s ease infinite;
   z-index: -2;
@@ -71,10 +71,16 @@ body {
   border: 3px solid white;
   box-shadow: 0 8px 16px rgba(159, 122, 234, 0.15);
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .avatar:hover {
   transform: scale(1.05) rotate(2deg);
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 200px;
 }
 
 .profile-info h1 {
@@ -85,6 +91,8 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 4px;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .badge-group {
@@ -95,7 +103,7 @@ body {
 }
 
 .badge {
-  background: #eef2f6;  /* light blue-gray */
+  background: #eef2f6;
   padding: 4px 12px;
   border-radius: 40px;
   font-size: 0.7rem;
@@ -106,6 +114,7 @@ body {
   gap: 4px;
   border: 1px solid #d0d9e6;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .badge:hover {
@@ -129,13 +138,14 @@ body {
   gap: 4px;
   border: 1px solid rgba(0,0,0,0.02);
   transition: filter 0.2s;
+  white-space: nowrap;
 }
 
 .tag:hover {
   filter: brightness(0.96);
 }
 
-/* Social row - icons made more visible */
+/* Social row */
 .social-row {
   display: flex;
   align-items: center;
@@ -207,7 +217,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Grid */
+/* Grid - stacks on mobile */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -260,6 +270,7 @@ body {
   color: #9f7aea;
   text-align: center;
   margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .edu-list strong {
@@ -296,7 +307,7 @@ body {
   gap: 8px;
 }
 
-/* Carousel */
+/* Carousel tabs */
 .carousel-block {
   background: #ffffff;
   border-radius: 32px;
@@ -349,7 +360,7 @@ body {
   display: block;
 }
 
-/* Class features - inner boxes light blue fade */
+/* Class features */
 .class-features {
   display: flex;
   flex-direction: column;
@@ -360,7 +371,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: #f0f7ff;  /* very light blue */
+  background: #f0f7ff;
   border-radius: 24px;
   padding: 12px 16px;
   border: 1px solid #e6f0fa;
@@ -383,6 +394,7 @@ body {
   border-radius: 22px;
   color: white;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .feature-item div {
@@ -390,50 +402,51 @@ body {
   color: #1e293b;
 }
 
-/* Gallery */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 12px;
-  margin-top: 8px;
-}
-
-.image-item {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 2px solid transparent;
-}
-
-.image-item:hover {
-  transform: scale(1.02);
-  border-color: #9f7aea;
-  box-shadow: 0 12px 20px -8px rgba(159, 122, 234, 0.2);
-}
-
-.image-item img {
+/* Gallery carousel */
+.gallery-carousel {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f8fafc;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+#carouselImage {
+  width: 100%;
+  aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.image-caption {
-  background: #f8fafc;
-  padding: 8px;
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: #2d3a4f;
-  border-top: 1px solid #e2e8f0;
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.active {
+  background: #9f7aea;
+  transform: scale(1.3);
 }
 
 .gallery-hint {
   text-align: center;
-  margin-top: 14px;
+  margin-top: 12px;
   color: #718096;
   font-size: 0.75rem;
   animation: pulse 2s infinite;
@@ -513,7 +526,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;  /* reduced from 2.5rem */
+  font-size: 2rem;
   color: #fff;
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
   pointer-events: auto;
@@ -524,7 +537,7 @@ body {
 }
 
 .wa-float-only .wa-button i {
-  font-size: 2rem;  /* icon size reduced */
+  font-size: 2rem;
 }
 
 .wa-button::before,
@@ -666,78 +679,93 @@ body {
   .feature-item div {
     font-size: 1rem;
   }
-  .image-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
   .footer {
     font-size: 0.85rem;
   }
 }
 
 /* Mobile compact adjustments */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
-    padding: 18px 8px 10px;
+    padding: 18px 10px 10px;
   }
   .card {
-    padding: 12px 14px;
+    padding: 14px 16px;
     border-radius: 24px;
   }
+  .profile-row {
+    gap: 12px;
+  }
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
   .profile-info h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .badge {
-    font-size: 0.6rem;
-    padding: 3px 8px;
+    font-size: 0.65rem;
+    padding: 3px 10px;
   }
   .tag {
     font-size: 0.6rem;
-    padding: 3px 8px;
+    padding: 3px 10px;
   }
   .social-circle {
-    width: 32px;
-    height: 32px;
-    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
   .social-handle {
-    font-size: 0.6rem;
-    padding: 4px 10px;
+    font-size: 0.65rem;
+    padding: 4px 12px;
   }
   .bio-card {
-    font-size: 0.8rem;
-    padding: 12px;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+  }
+  /* Stack education & experience */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .card-header {
     font-size: 1rem;
   }
   .card-header i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .edu-list li {
-    font-size: 0.7rem;
-  }
-  .class-tag {
-    font-size: 0.65rem;
-    padding: 4px 10px;
-  }
-  .class-detail p {
     font-size: 0.75rem;
   }
-  .tab-btn {
+  .class-tag {
     font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+  .class-detail p {
+    font-size: 0.8rem;
+  }
+  .tab-btn {
+    font-size: 0.75rem;
     padding: 8px 0;
   }
   .feature-item i {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
   }
   .feature-item div {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
-  .image-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 8px;
+  .gallery-carousel {
+    border-radius: 20px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  .footer {
+    font-size: 0.65rem;
   }
   .wa-bubble {
     font-size: 0.8rem;
@@ -746,9 +774,19 @@ body {
   .wa-button {
     width: 55px;
     height: 55px;
-    font-size: 1.8rem;  /* smaller icon on mobile too */
+    font-size: 1.8rem;
   }
   .wa-float-only .wa-button i {
     font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .badge, .tag {
+    white-space: normal;
+    word-break: break-word;
+  }
+  .profile-info h1 {
+    font-size: 1.1rem;
   }
 }
