@@ -23,7 +23,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <!-- Animated light gradient background -->
+  <!-- Animated cream background -->
   <div class="bg-animated"></div>
 
   <div class="container">
@@ -59,7 +59,7 @@
       <p>“Literature is not just an art, it's a mirror of our lives and experiences.”</p>
     </div>
 
-    <!-- Education & experience grid -->
+    <!-- Education & experience grid - stacks on mobile -->
     <div class="card-grid">
       <div class="card info-card">
         <div class="card-header"><i class="fas fa-university" style="color:#9f7aea;"></i> <span>Education</span></div>
@@ -118,8 +118,12 @@
           </div>
         </div>
         <div class="tab-panel" id="gallery-panel">
-          <div class="image-grid" id="imageGrid"></div>
-          <p class="gallery-hint"><i class="fas fa-hand-pointer"></i> tap to enlarge</p>
+          <!-- Carousel inside gallery -->
+          <div class="gallery-carousel">
+            <img id="carouselImage" src="img01.webp" alt="Gallery image" onclick="openModal(this.src)">
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+          <p class="gallery-hint"><i class="fas fa-hand-pointer"></i> tap image to enlarge</p>
         </div>
       </div>
     </div>
