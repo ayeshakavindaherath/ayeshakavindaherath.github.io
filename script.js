@@ -2,8 +2,8 @@
 // Gallery images array
 const images = [
   { src: 'img01.webp', caption: 'Group class at Nugegoda' },
-  { src: 'img02.webp', caption: 'Literature discussion' },
-  { src: 'img03.webp', caption: 'Online session' }
+  { src: 'img01.webp', caption: 'Literature discussion' },
+  { src: 'img01.webp', caption: 'Online session' }
 ];
 
 let currentImageIndex = 0;
@@ -206,3 +206,4 @@ document.querySelectorAll('img').forEach(img => {
 
 // Make carousel image clickable for modal
 carouselImg.addEventListener('click', () => openModal(carouselImg.src));
+
